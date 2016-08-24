@@ -18,14 +18,20 @@ When you have a program that generates this pattern, define a variable size = 8 
 */
 
 // Your code here.
-var oddString = " # # # #"
-var evenString = "# # # # "
-var finalString = ""
+var size = 8;
+var oddString = " # # # #";
+var evenString = "# # # # ";
+var finalString = "";
 
-for (var i = 1; i <= 8; i++) {
+for (var i = 1; i <= size; i++) {
   
-  if (i==8) {
-    finalString+=evenString
+  if (i==size) {
+    if (i % 2 != 0) {
+    	finalString+=oddString;
+    }
+    else {
+    	finalString+=evenString;
+    }
   }
   else if (i % 2 != 0) {
     finalString+=oddString + "\n";
