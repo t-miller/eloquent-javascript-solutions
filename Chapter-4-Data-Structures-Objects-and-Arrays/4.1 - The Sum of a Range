@@ -9,14 +9,19 @@ As a bonus assignment, modify your range function to take an optional third argu
 */
 
 // Your code here.
-function range(start,end) {
+function range(start, end, step) {
   var tempArray = [];
   
-  for(var i = 0; i < end; i++) {
-    tempArray[i] = start + i;
+  if (step == undefined) {
+    step = 1;
+  }
+  
+  for(var i = 0; i <= Math.ceil(Math.abs(start-end)/Math.abs(step)); i++) {
+    tempArray[i] = start + (step * i);
   }
   
   return tempArray;
+  
 };
 
 function sum(numArray) {
