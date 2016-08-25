@@ -18,3 +18,13 @@ function range(start,end) {
   
   return tempArray;
 };
+
+function sum(numArray) {
+  var arraySum = 0;
+  
+  for(var i = 0; i < numArray.length; i++) {
+    arraySum += numArray[i];
+  }
+  
+  return arraySum;
+};
