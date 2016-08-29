@@ -11,9 +11,25 @@ If you haven’t already, also write a recursive version of nth.
 function arrayToList(anArray) {
   var listFromArray = {};
   var tempList = {};
+  var priorList = {};
   
-  for (var i = 0; i < anArray.length;, i++) {
+  for (var i = anArray.length - 1; i >= 0; i--) {
+        
+    tempList.value = anArray[i];
     
-  
+    if (i == anArray.length - 1) {
+      tempList.rest = null;
+    }
+    else {
+      tempList.rest = priorList;
+    }
+    
+    priorList = tempList;
+    
+    if (i == 0) {
+      listFromArray=tempList;
+    }
+    tempList = {};
+  }  
   return listFromArray;
 };
