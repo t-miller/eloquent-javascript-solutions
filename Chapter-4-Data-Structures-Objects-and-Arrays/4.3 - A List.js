@@ -33,3 +33,18 @@ function arrayToList(anArray) {
   }  
   return listFromArray;
 };
+
+function listToArray(aList) {
+  var arrayFromList = [];
+  var currentList = aList;
+  var i = 0;
+  var lastRest = {};
+	    
+  while (lastRest != null) {
+    arrayFromList[i] = currentList.value;
+    lastRest = currentList.rest
+    currentList = currentList.rest;
+    i++;
+  }  
+  return arrayFromList;
+};
