@@ -14,7 +14,6 @@ function arrayToList(anArray) {
   var priorList = {};
   
   for (var i = anArray.length - 1; i >= 0; i--) {
-        
     tempList.value = anArray[i];
     
     if (i == anArray.length - 1) {
@@ -55,4 +54,16 @@ function prepend(element, list) {
   newList.value = element;
   newList.rest = list;
   return newList;
+};
+
+function nth(list, number) {   
+  if (number == 0) {
+    return list.value;
+  }
+  else if (list.rest != null) {
+    return nth(list.rest, number - 1);
+  }
+  else {
+    return undefined;
+  }
 };
