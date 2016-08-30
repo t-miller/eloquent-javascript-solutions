@@ -48,3 +48,11 @@ function listToArray(aList) {
   }  
   return arrayFromList;
 };
+
+function prepend(element, list) {
+  var newList = {};
+  
+  newList.value = element;
+  newList.rest = list;
+  return newList;
+};
