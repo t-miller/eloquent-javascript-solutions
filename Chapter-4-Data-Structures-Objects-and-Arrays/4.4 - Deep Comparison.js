@@ -8,33 +8,24 @@ To find out whether to compare two things by identity (use the === operator for 
 
 // Your code here.
 function deepEqual(valOne, valTwo) {
-  var valuesEqual = false;
-  var oneProperties = 0;
-  var twoProperties = 0;
-  
-  if ((typeof valOne === "object" && typeof valTwo === "object") && (valOne != null && valTwo != null)) {
-    
+  var valuesEqual = true;
+
+  if ((typeof valOne === "object" && typeof valTwo === "object") && 
+      (valOne != null && valTwo != null)) {    
     for (var i in valOne) {
-      if (valOne.hasOwnProperty(i)) {
-        oneProperties++;
-      }
-    }
-    
-    for (var j in valTwo) {
-      if (valTwo.hasOwnProperty(j)) {
-        twoProperties++;
-      }
-    }
-    
-    if (oneProperties === twoProperties) {
-      for (var k = 0; k < oneProperties; k++) {
-        
+      if (valOne.hasOwnProperty(i)) {        
+      	if (valTwo.hasOwnProperty(i)) {
+          valuesEqual = deepEqual(valOne[i], valTwo[i]);
+          if (!valuesEqual) {
+            return false;
+          }
+      	}
       }
     }
   }
   else {
-    if (valOne === valTwo) {
-      valuesEqual = true;
+    if (valOne != valTwo) {
+      valuesEqual = false;
     }
   }
   return valuesEqual;
