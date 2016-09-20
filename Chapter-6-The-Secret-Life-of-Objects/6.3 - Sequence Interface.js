@@ -5,3 +5,10 @@ When you have specified your interface, try to write a function logFive that tak
 
 Then implement an object type ArraySeq that wraps an array and allows iteration over the array using the interface you designed. Implement another object type RangeSeq that iterates over a range of integers (taking from and to arguments to its constructor) instead.
 */
+
+// Your code here.
+function logFive(sequence) {
+  for (var i = 0; i < Math.min(5, sequence.length); i++) {
+    console.log(sequence[i]);
+  }
+};
