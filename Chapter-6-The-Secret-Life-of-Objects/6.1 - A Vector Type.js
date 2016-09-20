@@ -6,19 +6,20 @@ Give the Vector prototype two methods, plus and minus, that take another vector 
 Add a getter property length to the prototype that computes the length of the vector—that is, the distance of the point (x, y) from the origin (0, 0).
 */
 
+// Your code here.
 function Vector(x,y) {
   this.x = x;
   this.y = y;
 };
 
 Vector.prototype.plus = function(vector) {
-  
+  return (new Vector(vector.x + this.x, vector.y + this.y));
 };
 
 Vector.prototype.minus = function(vector) {
-  
+  return (new Vector(this.x - vector.x, this.y - vector.y));
 };
 
 Object.defineProperty(Vector.prototype, "length", {
-  get: function() { }
+  get: function() { return (Math.sqrt(this.x*this.x + this.y*this.y)) }
 });
