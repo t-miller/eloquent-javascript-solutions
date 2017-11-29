@@ -34,4 +34,5 @@ function reverseArrayInPlace(anArray) {
     
     j--;
   }
+  return anArray
 };
