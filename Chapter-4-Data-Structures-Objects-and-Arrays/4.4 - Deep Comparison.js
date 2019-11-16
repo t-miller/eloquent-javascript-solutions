@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 /*
 The == operator compares objects by identity. But sometimes, you would prefer to compare the values of their actual properties.
 
@@ -8,25 +9,32 @@ To find out whether to compare two things by identity (use the === operator for 
 
 // Your code here.
 function deepEqual(valOne, valTwo) {
-  var valuesEqual = true;
+  let valuesEqual = true;
 
-  if ((typeof valOne === "object" && typeof valTwo === "object") && 
-      (valOne != null && valTwo != null)) {    
-    for (var i in valOne) {
-      if (valOne.hasOwnProperty(i)) {        
-      	if (valTwo.hasOwnProperty(i)) {
+  if ((typeof valOne === 'object' && typeof valTwo === 'object') &&
+      (valOne != null && valTwo != null)) {
+    for (const i in valOne) {
+      if (valOne.hasOwnProperty(i)) {
+        if (valTwo.hasOwnProperty(i)) {
           valuesEqual = deepEqual(valOne[i], valTwo[i]);
           if (!valuesEqual) {
             return false;
           }
-      	}
+        }
       }
     }
-  }
-  else {
+  } else {
     if (valOne != valTwo) {
       valuesEqual = false;
     }
   }
   return valuesEqual;
 };
+
+const obj = {here: {is: 'an'}, object: 2};
+console.log(deepEqual(obj, obj));
+// → true
+console.log(deepEqual(obj, {here: 1, object: 2}));
+// → false
+console.log(deepEqual(obj, {here: {is: 'an'}, object: 2}));
+// → true
